@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pomodoro App</string>
+    <string name="main_button_text">Start</string>
+    <string name="main_text_field">Tap the button to start the timer</string>
+</resources>
