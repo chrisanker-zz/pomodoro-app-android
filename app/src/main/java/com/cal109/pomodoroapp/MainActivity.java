@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button mainButton;
     private TextView timerDisplay;
-    private String workOrBreak;
     private boolean timerStarted = false;
     private static final int minutesDenominator = 60000;
     private static final int secondsDenominator = 1000;
@@ -29,13 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             seconds = (millisUntilFinished / secondsDenominator) % modulusValue;
             secondsString = String.format("%02d", seconds);
             minutesString = String.format("%02d", minutes);
-            timerDisplay.setText(workOrBreak + " time left: " + minutesString + ":" + secondsString);
+            timerDisplay.setText("Work time left: " + minutesString + ":" + secondsString);
         }
 
         @Override
         public void onFinish() {
             pomoCountDown.cancel();
-            workOrBreak = "Break";
             breakCountDown.start();
         }
     };
@@ -47,13 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             seconds = (millisUntilFinished / secondsDenominator) % modulusValue;
             secondsString = String.format("%02d", seconds);
             minutesString = String.format("%02d", minutes);
-            timerDisplay.setText("Time left: " + minutesString + ":" + secondsString);
+            timerDisplay.setText("Break time left: " + minutesString + ":" + secondsString);
         }
 
         @Override
         public void onFinish() {
             breakCountDown.cancel();
-            workOrBreak = "Work";
             pomoCountDown.start();
         }
     };
@@ -75,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (!timerStarted){
             timerStarted = true;
-            workOrBreak = "Work";
             pomoCountDown.start();
             mainButton.setText("Stop");
         }
