@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String secondsString;
     String minutesString;
 
-    CountDownTimer pomoCountDown = new CountDownTimer(1500000,1000) {
+    CountDownTimer workCountDown = new CountDownTimer(1500000,1000) {
         @Override
         public void onTick(long millisUntilFinished) {
             minutes = (millisUntilFinished  / minutesDenominator)% modulusValue;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onFinish() {
-            pomoCountDown.cancel();
+            workCountDown.cancel();
             breakCountDown.start();
         }
     };
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onFinish() {
             breakCountDown.cancel();
-            pomoCountDown.start();
+            workCountDown.start();
         }
     };
 
@@ -72,12 +72,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (!timerStarted){
             timerStarted = true;
-            pomoCountDown.start();
+            workCountDown.start();
             mainButton.setText("Stop");
         }
         else{
             timerStarted = false;
-            pomoCountDown.cancel();
+            workCountDown.cancel();
             breakCountDown.cancel();
             mainButton.setText("Start");
         }
