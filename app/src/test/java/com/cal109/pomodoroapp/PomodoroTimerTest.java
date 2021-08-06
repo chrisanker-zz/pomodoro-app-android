@@ -1,5 +1,7 @@
 package com.cal109.pomodoroapp;
 
+import android.os.CountDownTimer;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
