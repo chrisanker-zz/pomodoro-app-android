@@ -9,8 +9,8 @@ public class WorkTimeCounterTest {
     @Test
     public void WorkTimeCountDown_Started_SetBackgroundRed(){
         WorkTimeCounter workTimeCounter = new WorkTimeCounter();
-        boolean hasStarted = false;
-        assertEquals("Red", workTimeCounter.setBackgroundColor(hasStarted));
+        boolean b = false;
+        assertEquals("Red", workTimeCounter.setBackgroundColor(b));
     }
 
 }
