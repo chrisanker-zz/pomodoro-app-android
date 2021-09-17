@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mainButton;
+    private TextView mainTextView;
     private TextView timerDisplay;
     private boolean timerStarted = false;
     private static final int minutesDenominator = 60000;
@@ -21,14 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String secondsString;
     String minutesString;
 
-    CountDownTimer workCountDown = new CountDownTimer(1500000,1000) {
+    CountDownTimer workCountDown = new CountDownTimer(1501000,1000) {
         @Override
         public void onTick(long millisUntilFinished) {
             minutes = (millisUntilFinished  / minutesDenominator)% modulusValue;
             seconds = (millisUntilFinished / secondsDenominator) % modulusValue;
             secondsString = String.format("%02d", seconds);
             minutesString = String.format("%02d", minutes);
-            timerDisplay.setText("Work time left: " + minutesString + ":" + secondsString);
+            timerDisplay.setText(minutesString + ":" + secondsString);
         }
 
         @Override
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             seconds = (millisUntilFinished / secondsDenominator) % modulusValue;
             secondsString = String.format("%02d", seconds);
             minutesString = String.format("%02d", minutes);
-            timerDisplay.setText("Break time left: " + minutesString + ":" + secondsString);
+            timerDisplay.setText(minutesString + ":" + secondsString);
         }
 
         @Override
@@ -61,8 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mainButton = findViewById(R.id.main_button);
-        timerDisplay = findViewById(R.id.textView);
-
+        timerDisplay = findViewById(R.id.time_remaining_text);
+        mainTextView = findViewById(R.id.textView);
 
         mainButton.setOnClickListener(this);
 
