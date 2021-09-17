@@ -25,11 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CountDownTimer workCountDown = new CountDownTimer(1501000,1000) {
         @Override
         public void onTick(long millisUntilFinished) {
-            minutes = (millisUntilFinished  / minutesDenominator)% modulusValue;
+            minutes = (millisUntilFinished / minutesDenominator) % modulusValue;
             seconds = (millisUntilFinished / secondsDenominator) % modulusValue;
-            secondsString = String.format("%02d", seconds);
-            minutesString = String.format("%02d", minutes);
-            timerDisplay.setText(minutesString + ":" + secondsString);
+            displayRemainingTime();
         }
 
         @Override
@@ -44,9 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void onTick(long millisUntilFinished) {
             minutes = (millisUntilFinished / minutesDenominator) % modulusValue;
             seconds = (millisUntilFinished / secondsDenominator) % modulusValue;
-            secondsString = String.format("%02d", seconds);
-            minutesString = String.format("%02d", minutes);
-            timerDisplay.setText(minutesString + ":" + secondsString);
+            displayRemainingTime();
         }
 
         @Override
@@ -83,5 +79,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mainButton.setText("Start");
         }
 
+    }
+
+    void displayRemainingTime(){
+        {
+            secondsString = String.format("%02d", seconds);
+            minutesString = String.format("%02d", minutes);
+            timerDisplay.setText(minutesString + ":" + secondsString);
+        }
     }
 }
