@@ -2,6 +2,7 @@ package com.cal109.pomodoroapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private long seconds;
     String secondsString;
     String minutesString;
+    private String mainTextVariable;
+
+    WorkTimeCounter workTimeCounter = new WorkTimeCounter();
 
     CountDownTimer workCountDown = new CountDownTimer(1501000,1000) {
         @Override
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,18 +70,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View v) {
         if (!timerStarted){
             timerStarted = true;
             workCountDown.start();
             mainButton.setText("Stop");
+            mainTextView.setText("Tap the button to " + workTimeCounter.setTextviewStringToStop() + " the timer.");
         }
         else{
             timerStarted = false;
             workCountDown.cancel();
             breakCountDown.cancel();
             mainButton.setText("Start");
+            mainTextView.setText("Tap the button to " + workTimeCounter.setTextviewStringToStart() + " the timer.");
         }
 
     }

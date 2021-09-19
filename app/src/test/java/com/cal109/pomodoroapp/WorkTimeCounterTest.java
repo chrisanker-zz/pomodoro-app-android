@@ -17,13 +17,20 @@ public class WorkTimeCounterTest {
     @Test
     public void OnCountdownStart_SetMainTextviewStringToContainStop(){
         textViewVariable = workTimeCounter.setTextviewStringToStop();
-        assertEquals("Stop", textViewVariable);
+        assertEquals("stop", textViewVariable);
     }
 
     @Test
     public void OnCountdownStop_SetMainTextviewStringToContainStart(){
         textViewVariable = workTimeCounter.setTextviewStringToStart();
-        assertEquals("Start", textViewVariable);
+        assertEquals("start", textViewVariable);
+    }
+
+    @Test
+    public void SetMainTextViewStringVariable_BasedOnCountDownStatus(){
+        boolean isCountingDown = false;
+        String textViewVariable = WorkTimeCounter.setTextViewStringVariable(isCountingDown);
+        assertEquals("start", textViewVariable);
     }
 
 }
