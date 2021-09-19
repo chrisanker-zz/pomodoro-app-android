@@ -21,7 +21,7 @@ public class WorkTimeCounterTest {
     }
 
     @Test
-    public void OnCountdownStart_SetMainTextviewStringToContainStart(){
+    public void OnCountdownStop_SetMainTextviewStringToContainStart(){
         textViewVariable = workTimeCounter.setTextviewStringToStart();
         assertEquals("Start", textViewVariable);
     }
