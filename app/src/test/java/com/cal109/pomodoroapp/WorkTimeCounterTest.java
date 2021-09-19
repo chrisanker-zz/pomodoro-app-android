@@ -7,22 +7,22 @@ import static org.junit.Assert.*;
 
 public class WorkTimeCounterTest {
     WorkTimeCounter workTimeCounter = new WorkTimeCounter();
+    String textViewVariable;
 
     @Test
     public void WorkTimeCountDown_Started_SetBackgroundRed(){
-        boolean b = false;
-        assertEquals("Red", workTimeCounter.setBackgroundColor(b));
+        assertEquals("Red", workTimeCounter.setBackgroundColor());
     }
 
     @Test
     public void OnCountdownStart_SetMainTextviewStringToContainStop(){
-        String textViewVariable = workTimeCounter.setTextviewStringToStop();
+        textViewVariable = workTimeCounter.setTextviewStringToStop();
         assertEquals("Stop", textViewVariable);
     }
 
     @Test
     public void OnCountdownStart_SetMainTextviewStringToContainStart(){
-        String textViewVariable = workTimeCounter.setTextviewStringToStart();
+        textViewVariable = workTimeCounter.setTextviewStringToStart();
         assertEquals("Start", textViewVariable);
     }
 

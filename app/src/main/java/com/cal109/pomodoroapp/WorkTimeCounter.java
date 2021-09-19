@@ -3,7 +3,7 @@ package com.cal109.pomodoroapp;
 public class WorkTimeCounter {
     private String backgroundColor;
 
-    public String setBackgroundColor(boolean b) {
+    public String setBackgroundColor() {
         backgroundColor = "Red";
         return backgroundColor;
     }
