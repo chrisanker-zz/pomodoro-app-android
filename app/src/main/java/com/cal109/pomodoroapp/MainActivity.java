@@ -69,24 +69,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        String buttonText;
-        String mainTextVariable;
         if (!timerStarted){
             timerStarted = true;
             workCountDown.start();
-            buttonText = "Stop";
+            String buttonText = "Stop";
             ((TextView)findViewById (R.id.main_button)).setText(buttonText);
-            mainTextVariable = WorkTimeCounter.setTextViewStringVariable(timerStarted);
-            ((TextView)findViewById (R.id.textView)).setText(mainTextVariable);
+            String mainTextVariable = WorkTimeCounter.setTextViewStringVariable(timerStarted);
+            String mainTextFull = "Tap the button to " + mainTextVariable + " the timer";
+            ((TextView)findViewById (R.id.textView)).setText(mainTextFull);
         }
         else{
             timerStarted = false;
             workCountDown.cancel();
             breakCountDown.cancel();
-            buttonText = "Start";
+            String buttonText = "Start";
             ((TextView)findViewById (R.id.main_button)).setText(buttonText);
-            mainTextVariable = WorkTimeCounter.setTextViewStringVariable(timerStarted);
-            ((TextView)findViewById (R.id.textView)).setText(mainTextVariable);
+            String mainTextVariable = WorkTimeCounter.setTextViewStringVariable(timerStarted);
+            String mainTextFull = "Tap the button to " + mainTextVariable + " the timer";
+            ((TextView)findViewById (R.id.textView)).setText(mainTextFull);
         }
 
     }
