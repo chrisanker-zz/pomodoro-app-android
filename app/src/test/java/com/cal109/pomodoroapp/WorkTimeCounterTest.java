@@ -7,8 +7,6 @@ import static org.junit.Assert.*;
 
 public class WorkTimeCounterTest {
     WorkTimeCounter workTimeCounter = new WorkTimeCounter();
-    String textViewVariable;
-    boolean isCountingDown;
 
     @Test
     public void WorkTimeCountDown_Started_SetBackgroundRed(){
