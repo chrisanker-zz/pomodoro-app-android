@@ -11,4 +11,8 @@ public class WorkTimeCounter {
     public String setTextviewStringToStop() {
         return "Stop";
     }
+
+    public String setTextviewStringToStart() {
+        return "Start";
+    }
 }
