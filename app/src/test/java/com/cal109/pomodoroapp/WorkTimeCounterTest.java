@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 public class WorkTimeCounterTest {
     WorkTimeCounter workTimeCounter = new WorkTimeCounter();
     String textViewVariable;
+    boolean isCountingDown;
 
     @Test
     public void WorkTimeCountDown_Started_SetBackgroundRed(){
@@ -28,9 +29,10 @@ public class WorkTimeCounterTest {
 
     @Test
     public void SetMainTextViewStringVariable_BasedOnCountDownStatus(){
-        boolean isCountingDown = false;
-        String textViewVariable = WorkTimeCounter.setTextViewStringVariable(isCountingDown);
+        String textViewVariable = WorkTimeCounter.setTextViewStringVariable(false);
         assertEquals("start", textViewVariable);
+        textViewVariable = WorkTimeCounter.setTextViewStringVariable(true);
+        assertEquals("stop", textViewVariable);
     }
 
 }

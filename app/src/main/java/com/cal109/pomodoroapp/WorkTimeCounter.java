@@ -4,7 +4,12 @@ public class WorkTimeCounter {
     private String backgroundColor;
 
     public static String setTextViewStringVariable(boolean isCountingDown) {
-        return "start";
+        if (!isCountingDown){
+            return "start";
+        }
+        else{
+            return "stop";
+        }
     }
 
     public String setBackgroundColor() {
