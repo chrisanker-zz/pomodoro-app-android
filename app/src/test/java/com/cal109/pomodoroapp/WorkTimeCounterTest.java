@@ -16,18 +16,6 @@ public class WorkTimeCounterTest {
     }
 
     @Test
-    public void OnCountdownStart_SetMainTextviewStringToContainStop(){
-        textViewVariable = workTimeCounter.setTextviewStringToStop();
-        assertEquals("stop", textViewVariable);
-    }
-
-    @Test
-    public void OnCountdownStop_SetMainTextviewStringToContainStart(){
-        textViewVariable = workTimeCounter.setTextviewStringToStart();
-        assertEquals("start", textViewVariable);
-    }
-
-    @Test
     public void SetMainTextViewStringVariable_BasedOnCountDownStatus(){
         String textViewVariable = WorkTimeCounter.setTextViewStringVariable(false);
         assertEquals("start", textViewVariable);

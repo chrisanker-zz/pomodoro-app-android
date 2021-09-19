@@ -1,7 +1,6 @@
 package com.cal109.pomodoroapp;
 
 public class WorkTimeCounter {
-    private String backgroundColor;
 
     public static String setTextViewStringVariable(boolean isCountingDown) {
         if (!isCountingDown){
@@ -13,15 +12,8 @@ public class WorkTimeCounter {
     }
 
     public String setBackgroundColor() {
-        backgroundColor = "Red";
+        String backgroundColor = "Red";
         return backgroundColor;
     }
 
-    public String setTextviewStringToStop() {
-        return "stop";
-    }
-
-    public String setTextviewStringToStart() {
-        return "start";
-    }
 }

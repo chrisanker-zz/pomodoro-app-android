@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mainButton;
-    private TextView mainTextView;
     private TextView timerDisplay;
     private boolean timerStarted = false;
     private static final int minutesDenominator = 60000;
@@ -20,11 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int modulusValue = 60;
     private long minutes;
     private long seconds;
-    String secondsString;
-    String minutesString;
-    private String mainTextVariable;
 
     WorkTimeCounter workTimeCounter = new WorkTimeCounter();
+
+
 
     CountDownTimer workCountDown = new CountDownTimer(1501000,1000) {
         @Override
@@ -62,37 +59,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainButton = findViewById(R.id.main_button);
+        Button mainButton = findViewById(R.id.main_button);
         timerDisplay = findViewById(R.id.time_remaining_text);
-        mainTextView = findViewById(R.id.textView);
+        TextView mainTextView = findViewById(R.id.textView);
 
         mainButton.setOnClickListener(this);
-
     }
 
-    @SuppressLint("SetTextI18n")
+
     @Override
     public void onClick(View v) {
+        String buttonText;
+        String mainTextVariable;
         if (!timerStarted){
             timerStarted = true;
             workCountDown.start();
-            mainButton.setText("Stop");
-            mainTextView.setText("Tap the button to " + workTimeCounter.setTextviewStringToStop() + " the timer.");
+            buttonText = "Stop";
+            ((TextView)findViewById (R.id.main_button)).setText(buttonText);
+            mainTextVariable = WorkTimeCounter.setTextViewStringVariable(timerStarted);
+            ((TextView)findViewById (R.id.textView)).setText(mainTextVariable);
         }
         else{
             timerStarted = false;
             workCountDown.cancel();
             breakCountDown.cancel();
-            mainButton.setText("Start");
-            mainTextView.setText("Tap the button to " + workTimeCounter.setTextviewStringToStart() + " the timer.");
+            buttonText = "Start";
+            ((TextView)findViewById (R.id.main_button)).setText(buttonText);
+            mainTextVariable = WorkTimeCounter.setTextViewStringVariable(timerStarted);
+            ((TextView)findViewById (R.id.textView)).setText(mainTextVariable);
         }
 
     }
 
     void displayRemainingTime(){
         {
-            secondsString = String.format("%02d", seconds);
-            minutesString = String.format("%02d", minutes);
+            String secondsString = String.format("%02d", seconds);
+            String minutesString = String.format("%02d", minutes);
             timerDisplay.setText(minutesString + ":" + secondsString);
         }
     }
