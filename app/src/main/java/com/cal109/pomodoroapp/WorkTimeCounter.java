@@ -7,4 +7,8 @@ public class WorkTimeCounter {
         backgroundColor = "Red";
         return backgroundColor;
     }
+
+    public String setTextviewStringToStop() {
+        return "Stop";
+    }
 }
